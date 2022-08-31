@@ -1,0 +1,17 @@
+<div class="sidenav">
+  <a [ngClass]="{ active: i === currentIndex }" *ngFor="let item of items; trackBy: trackByFunction; let i = index"
+    (click)="setActiveSection(i)">{{i+1}} . {{ item | titlecase }}</a>
+
+</div>
+
+<div class="main">
+  <div class="navbar">
+    <a [ngClass]="{ active: i === currentCategoryIndex }"
+      *ngFor="let category of categoriesList; trackBy: trackByFunction; let i = index" (click)="selectCategory(i)">{{
+      category.text }}</a>
+  </div>
+  
+  <br />
+  <app-result [operator]="items[currentIndex]"></app-result>
+</div>
+<router-outlet></router-outlet>

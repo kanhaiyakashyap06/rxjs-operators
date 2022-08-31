@@ -1,0 +1,16 @@
+<small style="text-decoration:underline;color:rgb(68 25 11);">Reactive programming is cool.
+
+    It’s becoming more and more clear that the future is web, and the future of the web is reactive. That means now is
+    the time to learn these concepts.
+</small>
+<br />
+<br />
+<div>
+    {{ operator | uppercase }} <b style="color:brown;">Example</b> in progress
+    <div><strong>Please open Browser console to check the sequence of values emitted</strong></div>
+    <br />
+    <div *ngIf="result$">
+        <div *ngFor="let result of result$ | async ">{{result.name}}</div>
+    </div>
+    <div *ngIf="result$">{{result$ | async | json}}</div>
+</div>

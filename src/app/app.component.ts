@@ -1,0 +1,105 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'rxjs-operators';
+  currentIndex = 0;
+  currentCategoryIndex = 0;
+  categoriesList = [
+    { text: 'Creation', value: 'creation' },
+    { text: 'Join Creation', value: 'joincreation' },
+    { text: 'Transformation', value: 'transformation' },
+    { text: 'Filtering', value: 'filtering' },
+  ];
+  categoryItems: Record<string, string[]> = {
+    creation: [
+      'bindCallback',
+      'bindNodeCallback',
+      'defer',
+      'from',
+      'fromEvent',
+      'fromEventPattern',
+      'generate',
+      'interval',
+      'of',
+      'range',
+      'throwError',
+      'timer',
+      'iif',
+    ],
+    joincreation: [
+      'combineLatest',
+      'concat',
+      'forkJoin',
+      'merge',
+      'partition',
+      'race',
+      'zip',
+    ],
+    transformation: [
+      'buffer',
+      'bufferCount',
+      'bufferTime',
+      'bufferToggle',
+      'bufferWhen',
+      'map',
+      'concatMap',
+      'mergeMap',
+      'switchMap',
+      'exhaustMap',
+      'expand',
+      'groupBy',
+      'pairwise',
+      'scan',
+      'mergeScan',
+      'switchScan',
+      'window',
+      'windowCount',
+      'windowTime',
+      'windowToggle',
+      'windowWhen',
+    ],
+    filtering: [
+      'filter',
+      'elementAt',
+      'first',
+      'last',
+      'single',
+      'ignoreElements',
+      'take',
+      'takeLast',
+      'takeUntil',
+      'takeWhile',
+      'skip',
+      'skipLast',
+      'skipUntil',
+      'skipWhile',
+      'distinct',
+      'distinctUntilChanged',
+      'distinctUntilKeyChanged',
+      'audit',
+      'auditTime',
+      'debounce',
+      'debounceTime',
+      'sample',
+      'sampleTime',
+      'throttle',
+      'throttleTime',
+    ],
+  };
+  items: string[] = this.categoryItems[this.categoriesList[0].value];
+  trackByFunction(index: number) {
+    return index;
+  }
+  setActiveSection(index: number) {
+    this.currentIndex = index;
+  }
+  selectCategory(index: number) {
+    this.currentCategoryIndex = index;
+    this.items = this.categoryItems[this.categoriesList[index].value];
+  }
+}
